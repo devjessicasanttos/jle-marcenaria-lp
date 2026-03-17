@@ -28,7 +28,7 @@ const WhatsAppFloat = () => {
             
             <p className="font-montserrat text-xs text-neutral-800 leading-tight">
               Olá! 👋 <br />
-              Que tal um **orçamento personalizado** para o seu projeto?
+              Que tal um <strong>orçamento personalizado </strong> para o seu projeto?
             </p>
           </div>
           
