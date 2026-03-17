@@ -36,14 +36,23 @@ const Header = () => {
       `}</style>
 
       <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center relative z-[101]">
-        {/* LOGO */}
-        <a href="#hero" className="flex items-baseline gap-2 group">
-          <span className="font-bebas text-3xl md:text-4xl text-[#FFFFFF] tracking-tighter transition-colors group-hover:text-[#C62828]">
-            JLE
-          </span>
-          <span className="font-montserrat text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-[#C62828] font-bold">
-            Marcenaria
-          </span>
+        {/* LOGO - Ajustado para melhor alinhamento mobile */}
+        <a href="#hero" className="flex items-center gap-3 group py-1">
+          <div className="relative w-10 h-10 lg:w-12 lg:h-12 overflow-hidden rounded-full border border-white/10 flex items-center justify-center">
+             <img 
+               src="/logo.png" 
+               alt="JLE Logo" 
+               className="w-full h-full object-cover scale-[1.20]"
+             />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bebas text-2xl md:text-4xl text-white leading-none tracking-tighter transition-colors group-hover:text-[#C62828]">
+              JLE
+            </span>
+            <span className="font-montserrat text-[7px] md:text-[10px] uppercase tracking-[0.3em] text-[#C62828] font-bold leading-none mt-1">
+              Marcenaria
+            </span>
+          </div>
         </a>
 
         {/* DESKTOP NAV */}
@@ -67,17 +76,21 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU BUTTON - Corrigido para visibilidade total */}
         <button
-          className="lg:hidden text-[#FFFFFF] p-2 hover:text-[#C62828] transition-colors"
+          className="lg:hidden flex items-center justify-center p-2 text-white hover:text-[#C62828] transition-colors focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Menu"
+          aria-label={isOpen ? "Fechar Menu" : "Abrir Menu"}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? (
+            <X size={32} strokeWidth={2.5} className="text-white" />
+          ) : (
+            <Menu size={32} strokeWidth={2.5} className="text-white" />
+          )}
         </button>
       </div>
 
-      {/* MOBILE NAV OVERLAY - CORRIGIDO Z-INDEX */}
+      {/* MOBILE NAV OVERLAY */}
       <div
         className={`fixed inset-0 bg-[#121212] z-[90] flex flex-col items-center justify-center gap-8 transition-all duration-500 lg:hidden ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
