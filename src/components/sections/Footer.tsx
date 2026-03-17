@@ -52,9 +52,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col">
-            <h4 className="font-bebas text-xl text-white tracking-widest mb-6 uppercase">Contato</h4>
-            
+          <div className="flex flex-col">            
             <div className="space-y-6 text-xs tracking-wide">
               <div className="space-y-4 border-l border-[#C62828]/30 pl-4">
                 <div className="space-y-1">
