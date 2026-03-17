@@ -15,7 +15,7 @@ const Header = () => {
 
   const navLinks = [
     { label: "Início", id: "hero" },
-    { label: "Sobre Nós", id: "sobre" },
+    { label: "Sobre Nós", id: "sobre" }, // Ajustado para corresponder ao ID da sua seção
     { label: "Projetos", id: "projetos" },
     { label: "Estrutura", id: "estrutura" },
     { label: "Contato", id: "contato" },
@@ -35,7 +35,7 @@ const Header = () => {
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
       `}</style>
 
-      <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center relative z-[101]">
+      <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center relative z-[110]">
         {/* LOGO */}
         <a href="#hero" className="flex items-baseline gap-2 group">
           <span className="font-bebas text-3xl md:text-4xl text-[#FFFFFF] tracking-tighter transition-colors group-hover:text-[#C62828]">
@@ -58,25 +58,18 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C62828] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
-          
-          <a 
-            href="#contato" 
-            className="font-montserrat text-[10px] uppercase tracking-widest font-bold bg-[#C62828] text-white px-6 py-3 rounded-none hover:bg-[#a32121] transition-all duration-300"
-          >
-            Orçamento
-          </a>
         </nav>
 
-        {/* MOBILE MENU BUTTON - Z-index alto para ficar sobre o overlay */}
+        {/* MOBILE MENU BUTTON - Z-index alto para ficar visível */}
         <button
-          className="lg:hidden text-[#FFFFFF] p-2 relative z-[110]"
+          className="lg:hidden text-white p-2 relative z-[120]"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
+          {isOpen ? <X size={32} strokeWidth={2.5} /> : <Menu size={32} strokeWidth={2.5} />}
         </button>
       </div>
 
-      {/* MOBILE NAV OVERLAY - Corrigido z-index e visibilidade */}
+      {/* MOBILE NAV OVERLAY - Corrigido z-index e bloqueio de cliques */}
       <div
         className={`fixed inset-0 bg-[#121212] flex flex-col items-center justify-center gap-8 transition-all duration-500 lg:hidden ${
           isOpen 
