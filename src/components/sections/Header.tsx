@@ -5,7 +5,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Efeito para mudar o fundo ao rolar
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -25,8 +24,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled 
-          ? "bg-[#121212]/90 backdrop-blur-md py-4 border-b border-white/5" 
+        scrolled || isOpen
+          ? "bg-[#121212]/95 backdrop-blur-md py-4 border-b border-white/5" 
           : "bg-transparent py-6"
       }`}
     >
@@ -36,7 +35,7 @@ const Header = () => {
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
       `}</style>
 
-      <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center">
+      <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center relative z-[101]">
         {/* LOGO */}
         <a href="#hero" className="flex items-baseline gap-2 group">
           <span className="font-bebas text-3xl md:text-4xl text-[#FFFFFF] tracking-tighter transition-colors group-hover:text-[#C62828]">
@@ -70,16 +69,17 @@ const Header = () => {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="lg:hidden text-[#FFFFFF]"
+          className="lg:hidden text-[#FFFFFF] p-2 hover:text-[#C62828] transition-colors"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* MOBILE NAV OVERLAY */}
+      {/* MOBILE NAV OVERLAY - CORRIGIDO Z-INDEX */}
       <div
-        className={`fixed inset-0 bg-[#121212] z-[-1] flex flex-col items-center justify-center gap-8 transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 bg-[#121212] z-[90] flex flex-col items-center justify-center gap-8 transition-all duration-500 lg:hidden ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
       >
@@ -88,7 +88,7 @@ const Header = () => {
             key={link.label}
             href={`#${link.id}`}
             onClick={() => setIsOpen(false)}
-            className="font-bebas text-4xl text-[#FFFFFF] hover:text-[#C62828] transition-colors"
+            className="font-bebas text-5xl text-[#FFFFFF] hover:text-[#C62828] transition-colors"
           >
             {link.label}
           </a>
@@ -96,7 +96,7 @@ const Header = () => {
         <a 
           href="#contato"
           onClick={() => setIsOpen(false)}
-          className="mt-4 font-montserrat text-[12px] uppercase tracking-widest font-bold border border-[#C62828] text-[#C62828] px-8 py-4"
+          className="mt-4 font-montserrat text-[12px] uppercase tracking-widest font-bold border border-[#C62828] text-[#C62828] px-10 py-5 hover:bg-[#C62828] hover:text-white transition-all"
         >
           Solicitar Orçamento
         </a>
