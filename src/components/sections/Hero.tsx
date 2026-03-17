@@ -17,7 +17,7 @@ const Hero = () => {
   return (
     <section 
       id="inicio" 
-      className="relative min-h-screen flex flex-col justify-start pt-32 lg:pt-40 overflow-hidden bg-[#121212] pb-20 font-montserrat"
+      className="relative min-h-screen flex flex-col justify-start pt-32 lg:pt-40 overflow-hidden bg-[#121212] font-montserrat"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&display=swap');
@@ -26,7 +26,7 @@ const Hero = () => {
         @keyframes progress { from { width: 0%; } to { width: 100%; } }
       `}</style>
       
-      {/* BACKGROUND SLIDER */}
+      {/* 1. BACKGROUND SLIDER */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((img, index) => (
           <div
@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/95 via-[#121212]/70 to-transparent z-10" />
       </div>
 
-      {/* CONTEÚDO PRINCIPAL - ID "sobre" para o menu funcionar */}
+      {/* 2. CONTEÚDO - ADICIONEI ID "sobre" AQUI PARA O LINK FUNCIONAR */}
       <div id="sobre" className="container mx-auto px-6 relative z-20 lg:pl-20 xl:pl-32">
         <div className="max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
           
@@ -64,19 +64,6 @@ const Hero = () => {
             <a href="https://wa.me/5511947927152" className="bg-[#C62828] text-white text-[11px] font-bold uppercase tracking-[0.3em] px-10 py-5 transition-all hover:bg-[#a81f1f] hover:scale-105 inline-block shadow-lg w-fit">
               Solicitar Orçamento
             </a>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-white/10 max-w-4xl">
-              {[
-                { title: 'Logística Própria', desc: 'Frota exclusiva para garantir entrega ágil.' },
-                { title: 'Pagamento Flexível', desc: 'Condições personalizadas para seu projeto.' },
-                { title: 'Precisão Técnica', desc: 'Sincronia total com seu arquiteto.' }
-              ].map((diff) => (
-                <div key={diff.title} className="space-y-2">
-                  <p className="text-[#C62828] font-bold text-[11px] uppercase tracking-[0.25em]">{diff.title}</p>
-                  <p className="text-white/50 text-[12px] leading-relaxed font-light">{diff.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
