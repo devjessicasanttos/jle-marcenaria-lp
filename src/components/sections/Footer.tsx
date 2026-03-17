@@ -31,8 +31,6 @@ const Footer = () => {
               Transformando ambientes com qualidade, precisão e a tradição da marcenaria de alto padrão desde 1980.
             </p>
           </div>
-
-          {/* COLUNA 2: NAVEGAÇÃO */}
           <div>
             <h4 className="font-bebas text-xl text-white tracking-widest mb-6 uppercase">Navegação</h4>
             <ul className="space-y-3">
@@ -54,13 +52,10 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          {/* COLUNA 3: CONTATO INTEGRADO (ANTIGO ATENDIMENTO) */}
           <div className="flex flex-col">
             <h4 className="font-bebas text-xl text-white tracking-widest mb-6 uppercase">Contato</h4>
             
             <div className="space-y-6 text-xs tracking-wide">
-              {/* Horário e Localização agrupados por bordas sutis */}
               <div className="space-y-4 border-l border-[#C62828]/30 pl-4">
                 <div className="space-y-1">
                   <p className="text-white/30 uppercase text-[9px] font-bold tracking-[0.2em]">Atendimento</p>
@@ -72,8 +67,6 @@ const Footer = () => {
                   <p className="text-[#C62828] font-bold uppercase tracking-widest">São Paulo e Região</p>
                 </div>
               </div>
-
-              {/* Redes Sociais Integradas na Coluna */}
               <div className="pt-2 flex items-center gap-5">
                 <a href="https://wa.me/5511947927152" className="text-white/40 hover:text-[#C62828] transition-all flex items-center gap-2 group">
                   <MessageCircle size={18} />
@@ -85,17 +78,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        {/* RODAPÉ FINAL */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-white/20 text-[9px] uppercase tracking-[0.3em] text-center md:text-left">
             © {new Date().getFullYear()} JLE Marcenaria. Todos os direitos reservados.
           </p>
-          
-          <div className="flex items-center gap-2 grayscale opacity-30 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-            <span className="text-[9px] uppercase tracking-widest text-white">Desenvolvido por</span>
-            <span className="font-bebas text-lg text-[#C62828] tracking-widest">Jéssica Santos</span>
-          </div>
         </div>
       </div>
     </footer>
