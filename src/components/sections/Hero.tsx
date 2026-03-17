@@ -109,7 +109,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-white/70 text-sm md:text-base mb-12 max-w-xl font-montserrat font-light leading-relaxed border-l border-[#C62828]/50 pl-6">
-            A tradição da JLE Marcenaria reside no cuidado artesanal. Somos o braço direito de arquitetos que buscam materializar projetos exclusivos com rigor técnico e acabamento impecável.
+            A tradição da Marcenaria JLE reside no cuidado artesanal. Somos o braço direito de arquitetos que buscam materializar projetos exclusivos com rigor técnico e acabamento impecável.
           </p>
           
           <div className="flex flex-col gap-16">
