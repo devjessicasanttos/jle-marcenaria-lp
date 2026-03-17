@@ -134,8 +134,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* 4. PAGINAÇÃO */}
       <div className="absolute bottom-10 right-10 z-20 hidden sm:flex items-center gap-6 text-[#8A8A8A] text-[10px] tracking-[0.2em] font-montserrat">
         <span className="text-white/60">0{currentImage + 1}</span>
         <div className="w-20 h-[1px] bg-white/10 relative">
