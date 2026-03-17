@@ -1,4 +1,3 @@
-import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
@@ -10,9 +9,9 @@ import WhatsAppFloat from "@/components/sections/WhatsAppFloat";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Removido o Header daqui porque ele já está dentro do Hero agora */}
-      {/* <Header /> */} 
-      <Hero />
+      {/* Removido o <Header /> daqui para eliminar o menu fantasma de trás */}
+      
+      <Hero /> 
       <About />
       <Services />
       <Structure />

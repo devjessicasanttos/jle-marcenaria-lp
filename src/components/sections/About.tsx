@@ -35,7 +35,8 @@ const About = () => {
   }, []);
 
   return (
-    <section id="sobre" className="py-24 lg:py-32 bg-[#121212] overflow-hidden">
+    /* AJUSTE AQUI: O id agora é "sobreajle" e adicionamos scroll-mt-32 para o scroll parar no lugar certo */
+    <section id="sobreajle" className="py-24 lg:py-32 bg-[#121212] overflow-hidden scroll-mt-32">
       {/* Importação das Fontes Oficiais e utilitários de Scroll */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&display=swap');

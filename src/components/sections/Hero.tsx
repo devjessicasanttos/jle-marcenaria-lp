@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram, Facebook, Menu, X } from "lucide-react";
 
 const heroImages = [
   "/hero4.jpeg",
@@ -8,6 +8,7 @@ const heroImages = [
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (heroImages.length <= 1) return;
@@ -17,6 +18,8 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const menuItems = ['Sobre a JLE', 'Projetos', 'Contato'];
+
   return (
     <section 
       id="inicio" 
@@ -24,10 +27,8 @@ const Hero = () => {
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&display=swap');
-        
         .font-bebas { font-family: 'Bebas Neue', cursive; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
-        
         @keyframes progress { from { width: 0%; } to { width: 100%; } }
       `}</style>
       
@@ -36,7 +37,6 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between relative">
           
           <div className="flex items-center gap-6">
-            {/* LOGO AJUSTADO: Removido padding, aplicado object-cover e scale para eliminar bordas brancas */}
             <div className="relative w-12 h-12 lg:w-24 lg:h-24 overflow-hidden rounded-full border border-white/10 shadow-2xl bg-transparent flex items-center justify-center">
               <img 
                 src="/logo.png" 
@@ -47,14 +47,15 @@ const Hero = () => {
             
             <div className="w-[1px] h-6 bg-white/20 hidden sm:block"></div>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 hidden sm:flex">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Instagram size={18} /></a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Facebook size={18} /></a>
             </div>
           </div>
 
+          {/* MENU DESKTOP */}
           <nav className="hidden lg:flex items-center text-white absolute left-1/2 -translate-x-1/2">
-            {['Sobre a JLE', 'Projetos', 'Contato'].map((item, index, array) => (
+            {menuItems.map((item, index) => (
               <React.Fragment key={item}>
                 <a 
                   href={`#${item.toLowerCase().replace(/\s+/g, '')}`} 
@@ -63,18 +64,46 @@ const Hero = () => {
                   {item}          
                   <span className="absolute -bottom-2 left-6 right-6 h-[1px] bg-[#C62828] w-0 transition-all group-hover:w-[calc(100%-3rem)]"></span>
                 </a>
-                {index < array.length - 1 && <span className="text-white/10 font-light text-xs">|</span>}
+                {index < menuItems.length - 1 && <span className="text-white/10 font-light text-xs">|</span>}
               </React.Fragment>
             ))}
           </nav>
+
+          {/* BOTÃO MOBILE (HAMBÚRGUER) */}
+          <button 
+            className="lg:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
           
           <div className="hidden lg:block">
              <span className="text-white/30 text-[9px] uppercase tracking-[0.3em] font-montserrat font-light">São Paulo | SP</span>
           </div>
         </div>
+
+        {/* MENU MOBILE EXPANSÍVEL */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[#121212]/95 backdrop-blur-lg border-b border-white/10 py-8 px-6 flex flex-col gap-6 animate-in slide-in-from-top-5 duration-300">
+            {menuItems.map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white text-xs font-semibold uppercase tracking-[0.3em] hover:text-[#C62828] transition-all"
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex gap-6 pt-4 border-t border-white/10">
+              <a href="https://instagram.com" className="text-white/40"><Instagram size={20} /></a>
+              <a href="https://facebook.com" className="text-white/40"><Facebook size={20} /></a>
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* 2. BACKGROUND SLIDER */}
+      {/* 2. BACKGROUND SLIDER (MANTIDO) */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((img, index) => (
           <div
@@ -89,10 +118,9 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/95 via-[#121212]/70 to-transparent z-10" />
       </div>
 
-      {/* 3. CONTEÚDO PRINCIPAL */}
+      {/* 3. CONTEÚDO PRINCIPAL (MANTIDO COM DIFERENCIAIS) */}
       <div className="container mx-auto px-6 relative z-20 lg:pl-20 xl:pl-32">
         <div className="max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          
           <div className="flex items-center gap-4 mb-6">
             <span className="w-10 h-[1px] bg-[#C62828]"></span>
             <p className="text-[#C62828] font-bold uppercase tracking-[0.5em] text-[10px] font-montserrat">
@@ -100,15 +128,15 @@ const Hero = () => {
             </p>
           </div>
           
-          <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl text-white leading-[0.9] mb-8 uppercase tracking-tight">
+          <h1 className="font-bebas text-5xl md:text-8xl lg:text-9xl text-white leading-[0.9] mb-8 uppercase tracking-tight">
             Móveis planejados <br />
             <span className="text-[#C62828]">com excelência</span> <br />
-            <span className="text-xl md:text-3xl lg:text-4xl lowercase font-montserrat font-light tracking-tighter italic block mt-2">
+            <span className="text-white/90 text-2xl md:text-5xl lg:text-6xl lowercase font-montserrat font-light tracking-tighter italic block mt-2">
               e atenção aos detalhes.
             </span>
           </h1>
           
-          <p className="text-white/70 text-sm md:text-base mb-12 max-w-xl font-montserrat font-light leading-relaxed border-l border-[#C62828]/50 pl-6">
+          <p className="text-white/70 text-sm md:text-base mb-12 max-w-xl font-montserrat font-light leading-relaxed border-l border-[#C62828]/50 pl-6 text-justify">
             A tradição da Marcenaria JLE reside no cuidado artesanal. Somos o braço direito de arquitetos que buscam materializar projetos exclusivos com rigor técnico e acabamento impecável.
           </p>
           
@@ -133,17 +161,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-10 right-10 z-20 hidden sm:flex items-center gap-6 text-[#8A8A8A] text-[10px] tracking-[0.2em] font-montserrat">
-        <span className="text-white/60">0{currentImage + 1}</span>
-        <div className="w-20 h-[1px] bg-white/10 relative">
-          <div 
-            className="absolute inset-0 bg-[#C62828]" 
-            key={currentImage}
-            style={{ width: '100%', transformOrigin: 'left', animation: 'progress 6s linear' }}
-          ></div>
-        </div>
-        <span className="text-white/20">0{heroImages.length}</span>
       </div>
     </section>
   );
