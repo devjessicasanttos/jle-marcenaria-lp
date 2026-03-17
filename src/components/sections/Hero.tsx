@@ -48,8 +48,8 @@ const Hero = () => {
             <div className="w-[1px] h-6 bg-white/20 hidden sm:block"></div>
             
             <div className="flex items-center gap-4 hidden sm:flex">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Instagram size={18} /></a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Facebook size={18} /></a>
+              <a href="https://www.instagram.com/marcenaria_j.l.e?igsh=MW04b3Z4cmltbTN6" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Instagram size={18} /></a>
+              <a href="https://www.facebook.com/share/1AWgHQZRys/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[#C62828] transition-all"><Facebook size={18} /></a>
             </div>
           </div>
 
