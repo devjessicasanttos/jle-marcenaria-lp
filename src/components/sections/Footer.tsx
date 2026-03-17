@@ -61,11 +61,7 @@ const Footer = () => {
             <div className="space-y-4 font-montserrat text-sm text-[#FFFFFF]/50 font-light">
               <p className="flex justify-between border-b border-white/5 pb-2">
                 <span>Segunda a Sexta</span>
-                <span className="text-[#FFFFFF]/80">08h - 18h</span>
-              </p>
-              <p className="flex justify-between border-b border-white/5 pb-2">
-                <span>Sábado</span>
-                <span className="text-[#FFFFFF]/80">08h - 12h</span>
+                <span className="text-[#FFFFFF]/80">07h30 - 17h30</span>
               </p>
               <p className="text-[#C62828] font-bold text-[10px] uppercase tracking-widest pt-2">
                 São Paulo e Região
