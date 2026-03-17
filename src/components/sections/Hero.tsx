@@ -103,7 +103,7 @@ const Hero = () => {
           <h1 className="font-bebas text-6xl md:text-8xl lg:text-9xl text-white leading-[0.9] mb-8 uppercase tracking-tight">
             Móveis planejados <br />
             <span className="text-[#C62828]">com excelência</span> <br />
-            <span className="text-white/90 text-3xl md:text-5xl lg:text-6xl lowercase font-montserrat font-light tracking-tighter italic block mt-2">
+            <span className="text-xl md:text-3xl lg:text-4xl lowercase font-montserrat font-light tracking-tighter italic block mt-2">
               e atenção aos detalhes.
             </span>
           </h1>
