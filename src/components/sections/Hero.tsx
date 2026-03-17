@@ -37,7 +37,7 @@ const Hero = () => {
           
           <div className="flex items-center gap-6">
             {/* LOGO AJUSTADO: Removido padding, aplicado object-cover e scale para eliminar bordas brancas */}
-            <div className="relative w-4 h-4 lg:w-10 lg:h-10 overflow-hidden rounded-full border border-white/10 shadow-2xl bg-transparent flex items-center justify-center">
+            <div className="relative w-12 h-12 lg:w-24 lg:h-24 overflow-hidden rounded-full border border-white/10 shadow-2xl bg-transparent flex items-center justify-center">
               <img 
                 src="/logo.png" 
                 alt="JLE Logo" 

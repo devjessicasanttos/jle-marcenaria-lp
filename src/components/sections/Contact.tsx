@@ -1,22 +1,33 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, MessageCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
 
+  // Link oficial do Google Maps para a JLE Marcenaria
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Rua+Phobus+627+Sao+Paulo";
+
   return (
     <section id="contato" className="py-24 lg:py-32 bg-[#121212] overflow-hidden" ref={ref}>
-      {/* Importação das Fontes Oficiais */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&display=swap');
         .font-bebas { font-family: 'Bebas Neue', cursive; }
         .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        @keyframes pulse-green {
+          0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+          70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .animate-whatsapp {
+          animation: pulse-green 2s infinite;
+        }
       `}</style>
 
       <div className="container mx-auto px-6 lg:px-20">
         
-        {/* BLOCO DE TÍTULO - PADRÃO HERO */}
+        {/* BLOCO DE TÍTULO */}
         <div
           className={`max-w-3xl mx-auto text-center mb-20 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -41,15 +52,15 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* CARDS DE CONTATO - ARREDONDADOS E REFINADOS */}
+        {/* CARDS DE CONTATO - 2 COLUNAS INTERATIVAS */}
         <div
-          className={`grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16 transition-all duration-1000 delay-200 ${
+          className={`grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12 transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {/* Telefone */}
+          {/* Card Telefone */}
           <a
-            href="tel:+5511000000000"
+            href="tel:+5511947927152"
             className="group flex flex-col items-center gap-6 p-10 rounded-2xl bg-[#1a1a1a] border border-white/5 hover:border-[#C62828]/50 transition-all duration-500 text-center"
           >
             <div className="w-16 h-16 rounded-full bg-[#C62828]/10 flex items-center justify-center group-hover:bg-[#C62828] transition-all duration-500">
@@ -61,36 +72,32 @@ const Contact = () => {
             </div>
           </a>
 
-          {/* Endereço */}
-          <div className="group flex flex-col items-center gap-6 p-10 rounded-2xl bg-[#1a1a1a] border border-white/5 hover:border-[#C62828]/50 transition-all duration-500 text-center">
+          {/* Card Localização (Google Maps Link) */}
+          <a 
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-6 p-10 rounded-2xl bg-[#1a1a1a] border border-white/5 hover:border-[#C62828]/50 transition-all duration-500 text-center relative overflow-hidden"
+          >
             <div className="w-16 h-16 rounded-full bg-[#C62828]/10 flex items-center justify-center group-hover:bg-[#C62828] transition-all duration-500">
               <MapPin size={24} className="text-[#C62828] group-hover:text-white transition-colors" />
             </div>
             <div>
-              <h3 className="font-bebas text-2xl text-[#FFFFFF] tracking-widest mb-2 uppercase">Rua Phobus, 627</h3>
-              <p className="text-[#FFFFFF]/60 font-montserrat text-sm">
-                São Paulo - SP<br />
-                Atendimento em toda capital e região
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <h3 className="font-bebas text-2xl text-[#FFFFFF] tracking-widest uppercase">Localização</h3>
+                <ExternalLink size={14} className="text-[#C62828] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <p className="text-[#FFFFFF]/60 font-montserrat text-sm group-hover:text-[#FFFFFF] transition-colors">
+                Rua Phobus, 627 - São Paulo<br />
+                <span className="text-[#C62828] text-[10px] font-bold uppercase tracking-widest mt-2 block opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                  Ver no Google Maps
+                </span>
               </p>
-            </div>
-          </div>
-
-          {/* E-mail */}
-          <a
-            href="mailto:contato@jlemarcenaria.com.br"
-            className="group flex flex-col items-center gap-6 p-10 rounded-2xl bg-[#1a1a1a] border border-white/5 hover:border-[#C62828]/50 transition-all duration-500 text-center"
-          >
-            <div className="w-16 h-16 rounded-full bg-[#C62828]/10 flex items-center justify-center group-hover:bg-[#C62828] transition-all duration-500">
-              <Mail size={24} className="text-[#C62828] group-hover:text-white transition-colors" />
-            </div>
-            <div>
-              <h3 className="font-bebas text-2xl text-[#FFFFFF] tracking-widest mb-2 uppercase">E-mail</h3>
-              <p className="text-[#FFFFFF]/60 font-montserrat text-sm group-hover:text-[#FFFFFF] transition-colors">contato@jlemarcenaria.com.br</p>
             </div>
           </a>
         </div>
 
-        {/* WhatsApp CTA - DESIGN SLIM & BOLD */}
+        {/* WhatsApp CTA */}
         <div
           className={`max-w-md mx-auto transition-all duration-1000 delay-400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -98,7 +105,7 @@ const Contact = () => {
         >
           <Button
             asChild
-            className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-montserrat font-bold uppercase tracking-widest py-8 rounded-2xl shadow-2xl hover:scale-[1.02] active:scale-95 transition-all duration-300 border-none"
+            className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-montserrat font-bold uppercase tracking-widest py-8 rounded-2xl shadow-2xl hover:scale-[1.05] active:scale-95 transition-all duration-300 border-none animate-whatsapp"
           >
             <a
               href="https://wa.me/5511947927152?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
@@ -107,12 +114,12 @@ const Contact = () => {
               className="flex items-center justify-center"
             >
               <MessageCircle size={24} className="mr-3 fill-white" />
-              Fale pelo WhatsApp
+              Chamar no WhatsApp
             </a>
           </Button>
           
           <p className="text-center text-[#FFFFFF]/30 text-[10px] font-montserrat uppercase tracking-[0.2em] mt-6">
-            Resposta rápida em horário comercial
+            Resposta imediata • Orçamento gratuito
           </p>
         </div>
       </div>
